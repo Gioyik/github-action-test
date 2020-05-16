@@ -1,0 +1,25 @@
+# action.yml
+name: 'Hello en Twitch'
+description: 'Ejemplo de Action en Twitch'
+
+inputs:
+  id-name:  # id of input
+    description: 'El nombre de quien saludo'
+    required: true
+    default: 'Alex'
+  id-stream:
+    description: 'Id del stream'
+    required: false
+    default: ''
+
+outputs:
+  saludo: # id of output
+    description: 'Verificar que si saludo'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.id-name }}
+    - ${{ inputs.id-stream }}
+
